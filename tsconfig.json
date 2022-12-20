@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@particles/*": ["./src/elements/particles/*"],
-      "@/*": ["./src/*"],
+      "@/*": ["src/*"],
       "@styles/*": ["./src/styles/*"]
     },
     "target": "ESNext",

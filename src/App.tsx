@@ -1,68 +1,31 @@
-import { useEffect, useState } from 'react';
-
 import { Layout } from './elements/organisms';
-
-const booksList = [
-  {
-    id: 1,
-    name: 'This is a name of  the first book',
-    content: 'lorem ipsum description jajaajsfak',
-  },
-  {
-    id: 2,
-    name: 'This is a name of  the first book',
-    content: 'lorem ipsum description jajaajsfak',
-  },
-  {
-    id: 3,
-    name: 'This is a name of  the first book',
-    content: 'lorem ipsum description jajaajsfak',
-  },
-  {
-    id: 4,
-    name: 'This is a name of  the first book',
-    content: 'lorem ipsum description jajaajsfak',
-  },
-  {
-    id: 5,
-    name: 'This is a name of  the first book',
-    content: 'lorem ipsum description jajaajsfak',
-  },
-];
+import { useGeneralContext } from '@/context/GeneralContext';
+import { Theme } from '@/enums';
 
 function App() {
-  const [books, setBooks] = useState<any[]>([]);
-
-  useEffect(() => {
-    if (booksList.length > 0) {
-      setBooks(booksList);
-    }
-  }, [booksList]);
+  const { setTheme } = useGeneralContext();
 
   return (
     <div className="App">
-      <Layout>
-        <h1>aaaaaaaaaa</h1>
-
-        <p>Este es un parrafo</p>
-        <div className="bg-red-200">
-          <h2 className="text-2xl font-bold hover:underline mb-3">
-            Este es un subtitulo
-          </h2>
-          <p className="text-sm">Parrafo</p>
-        </div>
-        <ul className="pl-10 list-disc">
-          {books &&
-            books.map((_, i) => (
-              <li key={i} className="">
-                <div className="flex items-center">
-                  <span className="font-medium pr-1 text-gray-700">Title:</span>
-                  <p className="text-gray-600">{_.name}</p>
-                </div>
-                <p className="text-gray-600">{_.content}</p>
-              </li>
-            ))}
-        </ul>
+      <Layout className="h-screen bg-white dark:bg-black flex items-center justify-center">
+        <button
+          className="bg-red-600 w-[10rem] mx-auto rounded-3xl p-6 text-black dark:text-white"
+          onClick={() => setTheme(Theme.dark)}
+        >
+          Dark mode
+        </button>
+        <button
+          className="bg-red-600 w-[10rem] mx-auto rounded-3xl p-6 text-black dark:text-white"
+          onClick={() => setTheme(Theme.light)}
+        >
+          Light
+        </button>
+        <button
+          className="bg-red-600 w-[10rem] mx-auto rounded-3xl p-6 text-black dark:text-white"
+          onClick={() => setTheme(Theme.system)}
+        >
+          System
+        </button>
       </Layout>
     </div>
   );
