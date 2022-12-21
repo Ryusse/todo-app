@@ -5,6 +5,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {},
+    fontFamily: {
+      roboto: ['Roboto', 'sans-serif'],
+    },
     colors: {
       transparent: 'transparent',
       disabled: '#C4C4C4',
@@ -21,24 +24,32 @@ module.exports = {
           200: '#1E1E1E',
           100: '#000000',
         },
-        red: {
-          300: '#F85977',
+      },
+      dark: {
+        background: {
+          paper: '#201F24'
         },
-        purple:{
-          500: '#5946D2'
+        divider: 'rgba(230, 225, 229, 0.12)',
+        text: '#E6E1E5',
+        primary: {
+          main: '#9373FF'
+        },
+        secondary: {
+          main: '#D9415E'
         }
       },
-      background:{
-        dark: {
-          paper:'#201F24'
+      light: {
+        background: {
+          paper: '#FFFFFF'
         },
-        light: {
-          paper:'#FFFFFF'
+        divider: 'rgba(28, 27, 31, 0.12)',
+        text: '#1C1B1F',
+        primary: {
+          main: '#5946D2'
+        },
+        secondary: {
+          main: '#F85977'
         }
-      },
-      divider:{
-        dark:'rgba(230, 225, 229, 0.12)',
-        light: 'rgba(28, 27, 31, 0.12)'
       },
       feedback: {
         warning: {

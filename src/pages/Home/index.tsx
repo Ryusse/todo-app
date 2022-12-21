@@ -1,13 +1,12 @@
-import { Layout } from './elements/organisms';
 import { useGeneralContext } from '@/context/GeneralContext';
+import { Layout } from '@/elements/organisms';
 import { Theme } from '@/enums';
 
-function App() {
+const Home = () => {
   const { setTheme } = useGeneralContext();
-
   return (
     <div className="App">
-      <Layout className="h-screen bg-white dark:bg-black flex items-center justify-center">
+      <Layout className="h-screen bg-light-background-paper dark:bg-dark-background-paper">
         <button
           className="bg-red-600 w-[10rem] mx-auto rounded-3xl p-6 text-black dark:text-white"
           onClick={() => setTheme(Theme.dark)}
@@ -29,6 +28,6 @@ function App() {
       </Layout>
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
