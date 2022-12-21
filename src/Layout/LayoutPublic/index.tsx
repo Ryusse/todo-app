@@ -10,7 +10,7 @@ const LayoutPublic = () => {
   const { window } = useGeneralContext();
 
   return (
-    <div className="flex w-full relative">
+    <div className="flex w-full h-screen relative overflow-hidden lg:overflow-auto">
       <Sidebar />
 
       <motion.div
