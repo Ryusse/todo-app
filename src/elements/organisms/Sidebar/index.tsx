@@ -1,9 +1,20 @@
-import { MdKeyboardArrowRight, RiStarFill, RiTaskLine } from 'react-icons/all';
+import {
+  AiOutlinePlus,
+  BiSearchAlt2,
+  BsListTask,
+  MdKeyboardArrowRight,
+  RiStarFill,
+  RiTaskLine,
+} from 'react-icons/all';
 
-const links = [
+import { useGeneralContext } from '@/context/GeneralContext';
+import { Link } from '@/elements/atoms';
+
+const links1 = [
   {
     id: 1,
     label: 'Important',
+    to: 'important',
     icon: (
       <RiStarFill
         size="1.25rem"
@@ -14,6 +25,7 @@ const links = [
   {
     id: 2,
     label: 'Tasks',
+    to: 'tasks',
     icon: (
       <RiTaskLine
         size="1.25rem"
@@ -23,43 +35,96 @@ const links = [
   },
 ];
 
+const links2 = [
+  {
+    id: 1,
+    label: 'Task List',
+    to: '/',
+    icon: (
+      <BsListTask
+        size="1.25rem"
+        className="text-light-primary-main dark:text-light-primary-main"
+      />
+    ),
+  },
+  {
+    id: 2,
+    label: 'House List',
+    to: '',
+    icon: (
+      <BsListTask
+        size="1.25rem"
+        className="text-light-primary-main dark:text-light-primary-main"
+      />
+    ),
+  },
+];
+
 export const Sidebar = () => {
+  const { window, setWindow } = useGeneralContext();
+
+  const handleOpenWindow = () => {
+    setWindow(true);
+  };
+
   return (
-    <div className="w-[17.5rem] px-5 py-8 bg-light-background-paper dark:bg-dark-background-paper">
-      <ul className="pb-4 border-b border-light-divider dark:border-dark-divider">
-        {links &&
-          links.map((_, i) => (
-            <li key={i} className="flex justify-between items-center p-5">
-              <div className="flex gap-4 items-center">
-                {_?.icon}
-                <p className="font-medium text-light-text dark:text-dark-text">
-                  {_?.label}
-                </p>
-              </div>
-              <MdKeyboardArrowRight
-                size="1.6rem"
-                className="text-primary-red-300"
-              />
-            </li>
-          ))}
-      </ul>
-      <ul>
-        {links &&
-          links.map((_, i) => (
-            <li key={i} className="flex justify-between items-center p-5">
-              <div className="flex gap-4 items-center">
-                {_?.icon}
-                <p className="font-medium text-light-text dark:text-dark-text">
-                  {_?.label}
-                </p>
-              </div>
-              <MdKeyboardArrowRight
-                size="1.6rem"
-                className="text-primary-red-300"
-              />
-            </li>
-          ))}
-      </ul>
+    <div className="h-screen w-full lg:w-[17.5rem] p-4 lg:py-8 lg:px-5 bg-light-background-container dark:bg-dark-background-container flex flex-col">
+      <div className="flex lg:hidden items-center justify-between mb-5">
+        <p>Foto</p>
+        <BiSearchAlt2
+          size="1.25rem"
+          className="text-light-primary-main dark:text-light-primary-main"
+        />
+      </div>
+      <div className="">
+        <ul className="pb-5 border-b border-light-divider dark:border-dark-divider">
+          {links1 &&
+            links1.map((_, i) => (
+              <li key={i} onClick={() => handleOpenWindow()}>
+                <Link to={_?.to}>
+                  <div className="flex gap-4 items-center">
+                    {_?.icon}
+                    <p className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                      {_?.label}
+                    </p>
+                  </div>
+                  <MdKeyboardArrowRight
+                    size="1.6rem"
+                    className="text-light-text-secondary dark:text-dark-text-secondary"
+                  />
+                </Link>
+              </li>
+            ))}
+        </ul>
+        <ul className="mt-5">
+          {links2 &&
+            links2.map((_, i) => (
+              <li key={i}>
+                <Link to={_?.to}>
+                  <div className="flex gap-4 items-center">
+                    {_?.icon}
+                    <p className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                      {_?.label}
+                    </p>
+                  </div>
+                  <MdKeyboardArrowRight
+                    size="1.6rem"
+                    className="text-light-text-secondary dark:text-dark-text-secondary"
+                  />
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </div>
+      <button className="px-5 py-3 flex items-center gap-3 mt-auto hover:bg-light-primary-light hover:dark:bg-dark-primary-light">
+        <AiOutlinePlus
+          size="1.5rem"
+          className="text-light-primary-main dark:text-dark-primary-main"
+        />
+        <p className="text-light-primary-main dark:text-dark-primary-main">
+          New List
+        </p>
+      </button>
     </div>
   );
 };

@@ -1,0 +1,6 @@
+.link {
+  @apply bg-dark-primary-main;
+  &.active {
+    @apply bg-light-primary-main dark:bg-dark-primary-main;
+  }
+}

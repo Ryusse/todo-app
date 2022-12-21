@@ -27,12 +27,17 @@ module.exports = {
       },
       dark: {
         background: {
-          paper: '#201F24'
+          paper: '#2e2d33',
+          container: '#201F24',
         },
         divider: 'rgba(230, 225, 229, 0.12)',
-        text: '#E6E1E5',
+        text: {
+          primary: '#E6E1E5',
+          secondary: 'rgba(230, 225, 229, 0.6)'
+        },
         primary: {
-          main: '#9373FF'
+          main: '#9373FF',
+          light: 'rgba(200, 191, 255, 0.08)',
         },
         secondary: {
           main: '#D9415E'
@@ -40,12 +45,17 @@ module.exports = {
       },
       light: {
         background: {
-          paper: '#FFFFFF'
+          paper: '#eeeeee',
+          container: '#FFFFFF',
+        },
+        text: {
+          primary: '#1C1B1F',
+          secondary: 'rgba(28, 27, 31, 0.6)'
         },
         divider: 'rgba(28, 27, 31, 0.12)',
-        text: '#1C1B1F',
         primary: {
-          main: '#5946D2'
+          main: '#5946D2',
+          light: 'rgba(89, 70, 210, 0.08)',
         },
         secondary: {
           main: '#F85977'
