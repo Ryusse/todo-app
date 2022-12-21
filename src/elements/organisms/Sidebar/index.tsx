@@ -7,7 +7,7 @@ import {
   RiTaskLine,
 } from 'react-icons/all';
 
-import { useGeneralContext } from '@/context/GeneralContext';
+import { useGeneralContext } from '@/context';
 import { Link } from '@/elements/atoms';
 
 const links1 = [
