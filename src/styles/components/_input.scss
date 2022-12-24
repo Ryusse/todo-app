@@ -1,0 +1,11 @@
+.hover-input {
+  @apply hover:dark:border-dark-primary-main hover:border-light-primary-main;
+}
+
+.focus-input {
+  @apply focus:dark:border-dark-primary-main focus:border-light-primary-main;
+}
+
+.active-input {
+  @apply active:dark:border-dark-primary-main active:border-light-primary-main;
+}

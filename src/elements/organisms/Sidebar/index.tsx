@@ -11,7 +11,8 @@ import {
 
 import { useGeneralContext } from '@/context';
 import { Link } from '@/elements/atoms';
-import { BottomSheetAddList } from '@/elements/organisms';
+import { AddListForm } from '@/elements/molecules';
+import { BottomSheet } from '@/elements/organisms';
 
 const links1 = [
   {
@@ -87,7 +88,7 @@ export const Sidebar = () => {
           />
         </div>
         <div className="">
-          <ul className="pb-5 border-b border-light-divider dark:border-dark-divider">
+          <ul className="pb-5 border-b border-light-divider-light dark:border-b-dark-divider-light">
             {links1 &&
               links1.map((_, i) => (
                 <li key={i} onClick={() => handleOpenWindow()}>
@@ -139,25 +140,19 @@ export const Sidebar = () => {
           </p>
         </button>
       </div>
-      <BottomSheetAddList
+      <BottomSheet
         open={openAddList}
         onReady={onReady}
         onDismiss={onDismiss}
         //onClose={setOpenAddList(false)}
-        body={
-          <div className="p-4 h-[60%]">
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
-            <h1>Body</h1>
+        header={
+          <div>
+            <p className="text-start">New list</p>
           </div>
         }
+        classNameBody="pb-20"
+        body={<AddListForm />}
+        footer={<div>Button</div>}
       />
     </>
   );

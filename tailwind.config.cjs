@@ -27,10 +27,13 @@ module.exports = {
       },
       dark: {
         background: {
-          paper: '#2e2d33',
+          paper: '#49454F',
           container: '#201F24',
         },
-        divider: 'rgba(230, 225, 229, 0.12)',
+        divider: {
+          main: 'rgba(230, 225, 229, 0.38)',
+          light: 'rgba(230, 225, 229, 0.12)'
+        },
         text: {
           primary: '#E6E1E5',
           secondary: 'rgba(230, 225, 229, 0.6)'
@@ -45,14 +48,17 @@ module.exports = {
       },
       light: {
         background: {
-          paper: '#eeeeee',
+          paper: '#FAF9FB',
           container: '#FFFFFF',
         },
         text: {
           primary: '#1C1B1F',
           secondary: 'rgba(28, 27, 31, 0.6)'
         },
-        divider: 'rgba(28, 27, 31, 0.12)',
+        divider: {
+          main: 'rgba(28, 27, 31, 0.38)',
+          light: 'rgba(28, 27, 31, 0.12)'
+        },
         primary: {
           main: '#5946D2',
           light: 'rgba(89, 70, 210, 0.08)',
@@ -64,6 +70,9 @@ module.exports = {
       feedback: {
         warning: {
           100: '#FFF2D1',
+        },
+        error: {
+          300: 'rgba(179, 38, 30, 1)'
         },
         success: {
           200: '#3A9900',

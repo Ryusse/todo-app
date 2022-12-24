@@ -1,3 +1,7 @@
 html, body {
-  @apply font-roboto;
+  @apply font-roboto tracking-[0.5px] text-light-text-primary dark:text-dark-text-primary;
+}
+
+* {
+  @apply placeholder:tracking-[0.5px] outline-none;
 }
