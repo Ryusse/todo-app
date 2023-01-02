@@ -1,6 +1,5 @@
-@use "abstract/base";
-@use "components/link";
-@use "components/index";
+@use "components/index" as a;
+@use "abstract/index" as b;
 
 @tailwind base;
 @tailwind components;

@@ -4,13 +4,14 @@ import {
   AiOutlinePlus,
   BiSearchAlt2,
   BsListTask,
+  BsPlusLg,
   MdKeyboardArrowRight,
   RiStarFill,
   RiTaskLine,
 } from 'react-icons/all';
 
 import { useGeneralContext } from '@/context';
-import { Link } from '@/elements/atoms';
+import { Button, Link } from '@/elements/atoms';
 import { AddListForm } from '@/elements/molecules';
 import { BottomSheet } from '@/elements/organisms';
 
@@ -79,7 +80,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <div className="h-screen w-full lg:w-[17.5rem] p-4 lg:py-8 lg:px-5 bg-light-background-container dark:bg-dark-background-container flex flex-col">
+      <div className="fixed inset-0 h-full lg:w-[17.5rem] p-4 lg:py-8 lg:px-5 bg-light-background-container dark:bg-dark-background-container flex flex-col">
         <div className="flex lg:hidden items-center justify-between mb-5">
           <p>Foto</p>
           <BiSearchAlt2
@@ -152,7 +153,17 @@ export const Sidebar = () => {
         }
         classNameBody="pb-20"
         body={<AddListForm />}
-        footer={<div>Button</div>}
+        footer={
+          <div className="flex items-center gap-4 justify-between">
+            <Button type="button" text="Cancel" classButton="text" />
+            <Button
+              type="button"
+              text="Create"
+              classButton="filled"
+              icon={<BsPlusLg className="w-4" />}
+            />
+          </div>
+        }
       />
     </>
   );

@@ -1,24 +1,49 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 
 interface Props {
+  defaultValue?: any;
   name: string;
-
+  hasError?: boolean;
   type: string;
   placeholder: string;
   maxLength?: number;
   className?: string;
+  onChange: (e: any) => void;
+  onInput?: (e: any) => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>(
-  ({ name, type, placeholder, maxLength, className }: Props, ref) => {
+  (
+    {
+      defaultValue,
+      name,
+      hasError,
+      type,
+      placeholder,
+      maxLength,
+      className,
+      onChange,
+      onInput,
+    }: Props,
+    ref
+  ) => {
+    const [value, setValue] = useState<string>(defaultValue);
+
     return (
       <input
         ref={ref}
         name={name}
         type={type}
+        onChange={onChange}
         placeholder={placeholder}
         maxLength={maxLength}
-        className={`w-full border-b-light-divider border-[2px] border-t-transparent border-x-transparent p-4 rounded-t-sm placeholder:text-light-divider-main placeholder:font-light text-sm bg-light-background-paper dark:border-b-dark-divider-main dark:bg-dark-background-paper placeholder:dark:text-dark-divider-main transition-all ease-in-out hover-input focus-input active-input ${className}`}
+        onInput={(e) => {
+          setValue(e.currentTarget.value);
+          onInput?.(e.currentTarget.value);
+        }}
+        className={`base-input border-[2px] placeholder-input ${className} ${
+          hasError ? 'input-error' : 'input-default'
+        }`}
       />
     );
   }

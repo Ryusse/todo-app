@@ -1,0 +1,20 @@
+
+.button-filled {
+  @apply bg-light-primary-main dark:bg-dark-primary-main #{!important};
+
+  svg {
+    @apply fill-light-background-container dark:fill-dark-text-primary;
+  }
+
+  p {
+    @apply text-primary-grey-900 dark:text-dark-text-primary #{!important};
+  }
+}
+
+.button-text {
+  @apply bg-transparent;
+
+  p {
+    @apply text-light-primary-main dark:text-dark-primary-main;
+  }
+}

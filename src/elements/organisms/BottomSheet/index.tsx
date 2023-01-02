@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 
 import { BottomSheet as BottomSheetMobile } from 'react-spring-bottom-sheet';
 
-import 'react-spring-bottom-sheet/dist/style.css';
+//import 'react-spring-bottom-sheet/dist/style.css';
 import { useGeneralContext } from '@/context';
 import { Theme } from '@/enums';
 
@@ -47,11 +47,14 @@ export const BottomSheet = ({
         maxHeight - maxHeight / 5,
         Math.min(Math.max(height, minHeight), maxHeight * 0.525),
       ]}
+      className="shadow-none"
       style={{
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         '--rsbs-bg': backgroundColor,
         '--rsbs-handle-bg': borderColor,
+        boxShadow: 'none',
+        padding: 0,
       }}
       expandOnContentDrag
     >
@@ -66,7 +69,7 @@ interface headerProps {
 
 const Header = ({ children }: headerProps) => {
   return (
-    <header className="py-4 border-b-[0.5px] border-b-light-divider-light dark:border-b-dark-divider-light">
+    <header className="p-4 border-b-[0.5px] border-b-light-divider-light dark:border-b-dark-divider-light">
       {children}
     </header>
   );
@@ -77,5 +80,9 @@ interface footerProps {
 }
 
 const Footer = ({ children }: footerProps) => {
-  return <footer className="">{children}</footer>;
+  return (
+    <footer className="p-4 border-t-[0.5px] border-t-light-divider-light dark:border-t-dark-divider-light">
+      {children}
+    </footer>
+  );
 };
