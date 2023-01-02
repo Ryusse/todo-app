@@ -80,7 +80,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <div className="sticky top-0 inset-0 h-full w-full lg:w-[17.5rem] p-4 lg:py-8 lg:px-5 bg-light-background-container dark:bg-dark-background-container flex flex-col">
+      <div className="fixed lg:sticky lg:top-0 inset-0 h-full w-full lg:w-[17.5rem] p-4 lg:py-8 lg:px-5 bg-light-background-container dark:bg-dark-background-container flex flex-col">
         <div className="flex lg:hidden items-center justify-between mb-5">
           <p>Foto</p>
           <BiSearchAlt2
