@@ -10,7 +10,6 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
-      disabled: '#C4C4C4',
       placeholder: '#9C9C9C',
       primary: {
         grey: {
@@ -38,6 +37,10 @@ module.exports = {
           primary: '#E6E1E5',
           secondary: 'rgba(230, 225, 229, 0.6)'
         },
+        disabled: {
+          background: '#79747E',
+          text: '#b2b1b4'
+        },
         primary: {
           main: '#9373FF',
           light: 'rgba(200, 191, 255, 0.08)',
@@ -54,6 +57,10 @@ module.exports = {
         text: {
           primary: '#1C1B1F',
           secondary: 'rgba(28, 27, 31, 0.6)'
+        },
+        disabled: {
+          background: 'rgba(28, 27, 31, 0.12)',
+          text: 'rgba(28, 27, 31, 0.38)'
         },
         divider: {
           main: 'rgba(28, 27, 31, 0.38)',

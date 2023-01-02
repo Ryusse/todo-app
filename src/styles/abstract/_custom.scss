@@ -4,3 +4,10 @@
   }
 }
 
+.form-group {
+  @apply relative;
+  
+  .form-error {
+    @apply text-feedback-error-300 absolute text-xs mt-2;
+  }
+}

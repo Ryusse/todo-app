@@ -1,13 +1,9 @@
 
 .button-filled {
-  @apply bg-light-primary-main dark:bg-dark-primary-main #{!important};
+  @apply bg-light-primary-main dark:bg-dark-primary-main text-primary-grey-900 dark:text-dark-text-primary fill-light-background-container dark:fill-dark-text-primary #{!important};
 
-  svg {
-    @apply fill-light-background-container dark:fill-dark-text-primary;
-  }
-
-  p {
-    @apply text-primary-grey-900 dark:text-dark-text-primary #{!important};
+  &:disabled {
+    @apply bg-light-disabled-background text-light-disabled-text fill-light-disabled-text dark:bg-dark-disabled-background dark:text-dark-disabled-text dark:fill-dark-disabled-text #{!important};
   }
 }
 

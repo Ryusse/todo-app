@@ -4,16 +4,16 @@ import {
   AiOutlinePlus,
   BiSearchAlt2,
   BsListTask,
-  BsPlusLg,
   MdKeyboardArrowRight,
   RiStarFill,
   RiTaskLine,
 } from 'react-icons/all';
 
 import { useGeneralContext } from '@/context';
-import { Button, Link } from '@/elements/atoms';
-import { AddListForm } from '@/elements/molecules';
+import { Link } from '@/elements/atoms';
+import { AddListForm, CardSave } from '@/elements/molecules';
 import { BottomSheet } from '@/elements/organisms';
+import { Form } from '@/interfaces';
 
 const links1 = [
   {
@@ -67,12 +67,26 @@ const links2 = [
 
 export const Sidebar = () => {
   const [openAddList, setOpenAddList] = useState<boolean>(false);
+  const [basicForm, setBasicForm] = useState<Form<any>>();
 
   const { window, setWindow } = useGeneralContext();
 
   const onReady = () => setOpenAddList(true);
 
   const onDismiss = () => setOpenAddList(false);
+
+  const sendFormData = async () => {
+    if (!basicForm) {
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append('listTitle', basicForm?.value.listTitle);
+    } catch (e: any) {
+      console.log(e);
+    }
+  };
 
   const handleOpenWindow = () => {
     setWindow(true);
@@ -152,17 +166,16 @@ export const Sidebar = () => {
           </div>
         }
         classNameBody="pb-20"
-        body={<AddListForm />}
+        body={<AddListForm onHandleValue={setBasicForm} />}
         footer={
-          <div className="flex items-center gap-4 justify-between">
-            <Button type="button" text="Cancel" classButton="text" />
-            <Button
-              type="button"
-              text="Create"
-              classButton="filled"
-              icon={<BsPlusLg className="w-4" />}
-            />
-          </div>
+          <CardSave
+            buttonType="submit"
+            closeBottomSheet={() => setOpenAddList(false)}
+            disabled={!basicForm?.isValid}
+            onSave={sendFormData}
+            buttonText="Create"
+            cancelButton
+          />
         }
       />
     </>

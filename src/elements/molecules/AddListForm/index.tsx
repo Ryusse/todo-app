@@ -1,33 +1,52 @@
+import { useEffect } from 'react';
+
 import { useForm } from 'react-hook-form';
 
 import { Input } from '@/elements/atoms';
+import { Form } from '@/interfaces';
 
-type FormValues = {
+type FormProps = {
   listTitle: string;
 };
 
-export const AddListForm = () => {
+interface Props {
+  onHandleValue: (e: Form<FormProps>) => void;
+}
+
+export const AddListForm = ({ onHandleValue }: Props) => {
   const {
     register,
-    control,
     watch,
     formState,
-    setValue,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<FormProps>({
     mode: 'all',
     reValidateMode: 'onChange',
   });
-  console.log(watch('listTitle'));
+
+  useEffect(() => {
+    onHandleValue({
+      value: watch() as FormProps,
+      isValid: formState.isValid,
+    });
+  }, [formState.isValid]);
 
   return (
-    <div>
-      <Input
-        type="text"
-        hasError={!!errors.listTitle}
-        placeholder="Enter list title"
-        {...register('listTitle', { required: true, minLength: 8 })}
-      />
+    <div className="block">
+      <div className="form-group">
+        <Input
+          type="text"
+          hasError={!!errors.listTitle}
+          placeholder="Enter list title"
+          {...register('listTitle', { required: true, minLength: 4 })}
+        />
+        {errors.listTitle && errors.listTitle.type === 'required' && (
+          <p className="form-error">This field is required</p>
+        )}
+        {errors.listTitle && errors.listTitle.type === 'minLength' && (
+          <p className="form-error">Minimum eight characters</p>
+        )}
+      </div>
     </div>
   );
 };
