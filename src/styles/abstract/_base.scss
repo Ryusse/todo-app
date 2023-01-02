@@ -1,5 +1,5 @@
 html, body {
-  @apply font-roboto tracking-[0.5px] text-light-text-primary dark:text-dark-text-primary;
+  @apply font-roboto tracking-[0.5px] text-light-text-primary dark:text-dark-text-primary  bg-light-background-container dark:bg-dark-background-container;
 }
 
 * {
